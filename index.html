@@ -1,0 +1,290 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Aritra P.</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: radial-gradient(circle, #282016, #080808 70%);
+  color: white;
+  font-family: Georgia, serif;
+  text-align: center;
+}
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 25px 15px;
+}
+
+.tag {
+  color: #d9b76b;
+  letter-spacing: 5px;
+  font-size: 11px;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: clamp(35px, 10vw, 55px);
+  color: #f0ce82;
+  text-shadow: 0 0 25px #d49c3b;
+  letter-spacing: 4px;
+}
+
+.subtitle {
+  color: #c5b18e;
+  margin-top: 12px;
+  letter-spacing: 3px;
+}
+
+.scene {
+  width: 220px;
+  height: 200px;
+  perspective: 800px;
+  margin: 35px auto;
+}
+
+.gift {
+  position: relative;
+  width: 150px;
+  height: 130px;
+  margin: auto;
+  transform-style: preserve-3d;
+  animation: rotateGift 7s infinite linear;
+}
+
+.box {
+  position: absolute;
+  bottom: 0;
+  width: 150px;
+  height: 100px;
+  background: linear-gradient(135deg, #e6c477, #916020);
+  border: 2px solid #f4d995;
+  box-shadow: 0 15px 35px #000;
+}
+
+.ribbon {
+  position: absolute;
+  left: 65px;
+  width: 20px;
+  height: 100%;
+  background: #fff0bd;
+}
+
+.lid {
+  position: absolute;
+  top: 0;
+  left: -8px;
+  width: 166px;
+  height: 32px;
+  background: linear-gradient(135deg, #f4d995, #9b6925);
+  transform-origin: left center;
+  transition: transform 1s ease;
+  z-index: 3;
+}
+
+.bow {
+  position: absolute;
+  top: -25px;
+  left: 58px;
+  font-size: 40px;
+  z-index: 4;
+}
+
+.gift.open .lid {
+  transform: rotate(-110deg) translateY(-25px);
+}
+
+.gift.open {
+  animation: none;
+}
+
+button {
+  padding: 15px 30px;
+  border: 1px solid #f0ce82;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #f0ce82, #98651e);
+  color: #160f05;
+  font-weight: bold;
+  letter-spacing: 2px;
+  font-size: 13px;
+  cursor: pointer;
+  box-shadow: 0 0 25px #c59a4b55;
+}
+
+#surprise {
+  display: none;
+  margin-top: 30px;
+  animation: reveal 1.5s ease;
+}
+
+#surprise h2 {
+  color: #f0ce82;
+  font-size: 30px;
+  margin-bottom: 15px;
+}
+
+#surprise p {
+  color: #e0d3b9;
+  line-height: 2;
+  font-size: 15px;
+}
+
+.cake {
+  font-size: 65px;
+  margin-bottom: 15px;
+  animation: bounce 1.5s infinite alternate;
+}
+
+.footer {
+  margin-top: 35px;
+  color: #a38a61;
+  font-size: 11px;
+  letter-spacing: 3px;
+}
+
+.particle {
+  position: fixed;
+  top: -20px;
+  pointer-events: none;
+  z-index: 10;
+  animation: fall 3s linear forwards;
+}
+
+@keyframes rotateGift {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(360deg); }
+}
+
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounce {
+  to { transform: translateY(-12px) scale(1.08); }
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="tag">A DAY TO REMEMBER</div>
+
+  <h1>ARITRA P.</h1>
+
+  <p class="subtitle">HAPPY BIRTHDAY ✨</p>
+
+  <div class="scene">
+    <div class="gift" id="gift">
+
+      <div class="lid"></div>
+
+      <div class="bow">🎀</div>
+
+      <div class="box">
+        <div class="ribbon"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <button id="openBtn" onclick="openGift()">
+    OPEN YOUR GIFT 🎁
+  </button>
+
+  <div id="surprise">
+
+    <div class="cake">🎂</div>
+
+    <h2>Happy Birthday!</h2>
+
+    <p>
+      Dear Aritra P.,<br><br>
+
+      Today is all about you.<br>
+      May your dreams become reality,<br>
+      your smile never fade,<br>
+      and your journey shine brighter<br>
+      with every passing year.<br><br>
+
+      Wishing you endless happiness<br>
+      and beautiful memories. ❤️<br><br>
+
+      Stay Blessed. Keep Shining. ✨
+    </p>
+
+  </div>
+
+  <div class="footer">
+    MADE WITH LOVE • A SPECIAL SURPRISE
+  </div>
+
+</div>
+
+<script>
+
+function openGift() {
+
+  const gift = document.getElementById("gift");
+
+  gift.classList.add("open");
+
+  document.getElementById("surprise").style.display = "block";
+
+  document.getElementById("openBtn").style.display = "none";
+
+  for (let i = 0; i < 70; i++) {
+
+    const particle = document.createElement("div");
+
+    particle.className = "particle";
+
+    particle.innerHTML =
+      ["✨", "⭐", "💛", "🎉"][Math.floor(Math.random() * 4)];
+
+    particle.style.left = Math.random() * 100 + "vw";
+
+    particle.style.animationDuration =
+      (2 + Math.random() * 3) + "s";
+
+    particle.style.fontSize =
+      (12 + Math.random() * 18) + "px";
+
+    document.body.appendChild(particle);
+
+    setTimeout(() => particle.remove(), 5000);
+
+  }
+
+}
+
+</script>
+
+</body>
+</html>
+
